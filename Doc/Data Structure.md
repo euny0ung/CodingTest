@@ -1,0 +1,44 @@
+# Data Structure (자료구조)
+
+<br>
+
+|        문제 출처        |                                                  문제 이름                                                  |                                       난이도                                       | 날짜 | 풀이 |
+| :---------------------: | :---------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: | :--: | :--: |
+|           BOJ           |                       <a href="https://noj.am/1158" target="_blank">요세푸스 문제</a>                       | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/6.svg"/>  |      |      |
+|           BOJ           |                           <a href="https://noj.am/10828" target="_blank">스택</a>                           | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/7.svg"/>  |      |      |
+|           BOJ           |                           <a href="https://noj.am/9012" target="_blank">괄호</a>                            | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/7.svg"/>  |      |      |
+|           BOJ           |                           <a href="https://noj.am/18258" target="_blank">큐 2</a>                           | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/7.svg"/>  |      |      |
+|           BOJ           |                           <a href="https://noj.am/2164" target="_blank">카드2</a>                           | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/7.svg"/>  |      |      |
+|           BOJ           |                            <a href="https://noj.am/10866" target="_blank">덱</a>                            | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/7.svg"/>  |
+|           BOJ           |                            <a href="https://noj.am/10845" target="_blank">큐</a>                            | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/7.svg"/>  |
+|           BOJ           |                       <a href="https://noj.am/4949" target="_blank">균형잡힌 세상</a>                       | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/7.svg"/>  |
+|           BOJ           |                         <a href="https://noj.am/3986" target="_blank">좋은 단어</a>                         | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/7.svg"/>  |
+|      프로그래머스       | <a href="https://programmers.co.kr/learn/courses/30/lessons/42576" target="_blank">완주하지 못한 선수 </a>  |                                      Level 1                                       |
+|           BOJ           |                        <a href="https://noj.am/1021" target="_blank">회전하는 큐</a>                        | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/7.svg"/>  |
+|           BOJ           |                          <a href="https://noj.am/5397" target="_blank">키로거</a>                           | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/8.svg"/>  |
+|           BOJ           |                        <a href="https://noj.am/18115" target="_blank">카드 놓기</a>                         | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/8.svg"/>  |
+|           BOJ           |                         <a href="https://noj.am/1874" target="_blank">스택 수열</a>                         | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/8.svg"/>  |
+|      프로그래머스       |    <a href="https://programmers.co.kr/learn/courses/30/lessons/42628" target="_blank">이중우선순위큐</a>    |                                      Level 3                                       |
+|           BOJ           |                       <a href="https://noj.am/1935" target="_blank">후위 표기식2</a>                        | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/8.svg"/>  |
+|           BOJ           |                         <a href="https://noj.am/10799" target="_blank">쇠막대기</a>                         | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/8.svg"/>  |
+|           BOJ           |                         <a href="https://noj.am/1966" target="_blank">프린터 큐</a>                         | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/8.svg"/>  |
+|           BOJ           |                         <a href="https://noj.am/11279" target="_blank">최대 힙</a>                          | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/9.svg"/>  |
+|           BOJ           |                          <a href="https://noj.am/1927" target="_blank">최소 힙</a>                          | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/10.svg"/> |
+|           BOJ           |                         <a href="https://noj.am/11286" target="_blank">절대 힙</a>                          | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/10.svg"/> |
+|      프로그래머스       |        <a href="https://programmers.co.kr/learn/courses/30/lessons/42587" target="_blank">프린터</a>        |                                      Level 2                                       |
+|      프로그래머스       |  <a href="https://programmers.co.kr/learn/courses/30/lessons/42583" target="_blank">다리를 지나는 트럭</a>  |                                      Level 2                                       |
+|           BOJ           |                       <a href="https://noj.am/2346" target="_blank">풍선 터뜨리기</a>                       | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/8.svg"/>  |
+| 2019 카카오 겨울 인턴십 | <a href="https://programmers.co.kr/learn/courses/30/lessons/64061" target="_blank">크레인 인형뽑기 게임</a> |                                      Level 1                                       |
+|           BOJ           |                         <a href="https://noj.am/2504" target="_blank">괄호의 값</a>                         | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/9.svg"/>  |
+|    2019 카카오 공채     |      <a href="https://programmers.co.kr/learn/courses/30/lessons/42888" target="_blank">오픈채팅방</a>      |                                      Level 2                                       |
+|      프로그래머스       |   <a href="https://programmers.co.kr/learn/courses/30/lessons/42627" target="_blank"> 디스크 컨트롤러</a>   |                                      Level 3                                       |
+| 월간 코드 챌린지 시즌2  |    <a href="https://programmers.co.kr/learn/courses/30/lessons/17679" target="_blank"> 괄호 회전하기</a>    |                                      Level 2                                       |
+|           BOJ           |                         <a href="https://noj.am/2800" target="_blank">괄호 제거</a>                         | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/11.svg"/> |
+|           BOJ           |                            <a href="https://noj.am/2493" target="_blank">탑</a>                             | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/11.svg"/> |
+|    2018 카카오 공채     |  <a href="https://programmers.co.kr/learn/courses/30/lessons/17679" target="_blank">[1차] 프렌즈4블록</a>   |                                      Level 2                                       |
+|           BOJ           |                       <a href="https://noj.am/22942" target="_blank">데이터 체커</a>                        | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/11.svg"/> |
+|           BOJ           |                        <a href="https://noj.am/1918" target="_blank">후위 표기식</a>                        | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/13.svg"/> |
+|           BOJ           |                            <a href="https://noj.am/5430" target="_blank">AC</a>                             | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/11.svg"/> |
+|    2019 카카오 공채     |        <a href="https://programmers.co.kr/learn/courses/30/lessons/42890" target="_blank">후보키</a>        |                                      Level 2                                       |
+|           BOJ           |                     <a href="https://noj.am/1863" target="_blank">스카이라인 쉬운거</a>                     | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/11.svg"/> |
+|           BOJ           |                         <a href="https://noj.am/22866" target="_blank">탑 보기</a>                          | <img height="25px" width="25px" src="https://static.solved.ac/tier_small/12.svg"/> |
