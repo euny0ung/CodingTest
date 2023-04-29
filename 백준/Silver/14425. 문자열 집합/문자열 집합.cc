@@ -1,5 +1,5 @@
 #include <iostream>
-#include <map>
+#include <set>
 #include <algorithm>
 using namespace std;
 
@@ -9,18 +9,18 @@ int main() {
 	int cnt = 0;
 	string set_input = "";
 	string find_input = "";
-	map<string, int>ma;
+	set<string>s;
 
 	cin >> n >> m;
 
 	for (int i = 0; i < n; i++) {
 		cin >> set_input;
-		ma.insert({ set_input, 1 });
+		s.insert(set_input);
 	}
 
 	for (int j = 0; j < m; j++) {
 		cin >> find_input;
-		if (ma.find(find_input) != ma.end()) {
+		if (s.find(find_input) != s.end()) {
 			cnt++;
 		}
 	}
