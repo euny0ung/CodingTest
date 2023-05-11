@@ -1,52 +1,50 @@
 #include <iostream>
-#include <vector>
 #include <string>
 #include <algorithm>
-#include <map>
 using namespace std;
 
-map<string, int>mp;
-
-bool cmp(pair<string, int>a, pair<string, int>b) {
-	if (a.first.size() != b.first.size()) {
-		return a.first.size() < b.first.size();
+bool cmp(string a, string b) {
+	if (a.size() != b.size()) {
+		return a.size() < b.size();
 	}
 	else {
-		if (mp[a.first] != mp[b.first]) {
-			return mp[a.first] < mp[b.first];
+		int result_a = 0;
+		int result_b = 0;
+
+		for (int i = 0; i < a.size(); i++) {
+			if (a[i] >= '0' && a[i] <= '9') {
+
+				result_a += a[i] - '0';
+			}
+			if (b[i] >= '0' && b[i] <= '9') {
+
+				result_b += b[i] - '0';
+			}
+		}
+
+		if (result_a != result_b) {
+			return result_a < result_b;
 		}
 		else {
-			return a.first < b.first;
+			return a < b;
 		}
 	}
-
 }
 
 int main() {
+	string st_arr[50];
 	int n = 0;
-	int add = 0;
 	string st;
-
 
 	cin >> n;
 
 	for (int i = 0; i < n; i++) {
-		add = 0;
-		cin >> st;
-		for (int j = 0; j < st.size(); j++) {
-			if (st[j] >= '0' && st[j] <= '9') {
-				add += st[j] - '0';
-			}
-		}
-	
-		mp.insert({ st,add });
+		cin >> st_arr[i];
 	}
 
-	vector<pair<string, int>>v(mp.begin(), mp.end());
+	sort(st_arr, st_arr+n, cmp);
 
-	sort(v.begin(), v.end(), cmp);
-
-	for (auto a : v) {
-		cout << a.first << endl;
+	for (int i = 0; i < n; i++) {
+		cout << st_arr[i] << endl;
 	}
 }
