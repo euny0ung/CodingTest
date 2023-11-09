@@ -10,10 +10,12 @@ public class Main {
 	static int[] arr;
 	static int[] result;
 	static boolean[] visited;
+	static StringBuilder sb=new StringBuilder();
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st= new StringTokenizer(br.readLine());
+		
 		
 		N=Integer.parseInt(st.nextToken());
 		M=Integer.parseInt(st.nextToken());
@@ -32,15 +34,17 @@ public class Main {
 		Arrays.sort(arr);
 		
 		perm(0, 0);
+		
+		System.out.println(sb);
 	}
 
 	private static void perm(int cnt, int idx) {
 		// TODO Auto-generated method stub
 		if(cnt==M) {
 			for(int i=0; i<M; i++) {
-				System.out.print(result[i]+" ");
+				sb.append(result[i]).append(" ");
 			}
-			System.out.println();
+			sb.append("\n");
 			return;
 		}
 		for(int i=0; i<N; i++) {
