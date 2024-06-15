@@ -11,6 +11,7 @@ int N = 0, M = 0;
 queue<pair<int,int>>q;
 
 bool isRange(int x, int y) {
+	// N,M 바꿔써서 90퍼에서 틀림
 	if (x < N && x >= 0 && y < M && y >= 0) return true;
 	return false;
 }
@@ -49,10 +50,10 @@ int main() {
 				q.push(make_pair(i, j));
 			}
 			// 3퍼에서 틀렸을 때 else 조건 넣으니까 90퍼까지 올랐음...
-			else {
+			/*else {
 				arr[i][j] = input - 2;
-			}
-			
+			}*/
+			arr[i][j] = input - 2;
 		}
 	}
 
