@@ -1,18 +1,23 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
-int count_trailing_zeros(int N) {
-    int count = 0;
-    for (int i = 5; N / i >= 1; i *= 5) {
-        count += N / i;
-    }
-    return count;
+int countZero(int n) {
+	int cnt = 0;
+
+	for (int i = 5; n / i>=1; i *= 5) {
+		cnt += n / i;
+	}
+	return cnt;
 }
 
 int main() {
-    int N;
-    cin >> N;
-    cout << count_trailing_zeros(N) << endl;
-    return 0;
+
+	int N = 0;
+
+	cin >> N;
+
+	cout << countZero(N) << "\n";
+
+	return 0;
 }
