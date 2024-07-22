@@ -1,72 +1,108 @@
 #include <iostream>
-#include <string>
 #include <vector>
+#include <stack>
+#include <string>
+#include <map>
+#include <string>
 #include <algorithm>
-#include <cstdlib> // for abs()
-
 using namespace std;
 
-long long applyOperation(long long a, long long b, char op) {
-    if (op == '+') return a + b;
-    if (op == '-') return a - b;
-    if (op == '*') return a * b;
-    return 0; // This should never happen
+map<char,int>mp; // 연산자, 우선순위 저장
+long long maxValue = 0;
+
+long long eval(long a, long b, char op){
+       if(op=='+') return a + b;
+        else if(op=='-') return a-b;
+        else return a*b;
 }
 
-// Evaluate expression by applying operations in the order of precedence
-long long evaluateExpression(vector<long long> numbers, vector<char> ops, vector<char> precedence) {
-    vector<long long> tmpNums = numbers;
-    vector<char> tmpOps = ops;
-
-    // Apply each operation in the order of precedence
-    for (char op : precedence) {
-        for (int i = 0; i < tmpOps.size(); ) {
-            if (tmpOps[i] == op) {
-                long long result = applyOperation(tmpNums[i], tmpNums[i + 1], op);
-                tmpNums[i] = result; // Replace the result
-                tmpNums.erase(tmpNums.begin() + i + 1); // Remove the second number
-                tmpOps.erase(tmpOps.begin() + i); // Remove the used operator
-            } else {
-                i++;
+// 순열 생성
+void dfs(int depth, vector<char>& op, string exp){
+    if(depth<op.size()){
+        for(int i=0; i<op.size(); i++){
+            // 이 if문 추가했더니 모든 테케 맞았음..
+            if(mp.find(op[i])==mp.end()){
+                  // 할당값 i에서 depth로 변경
+                mp[op[i]]=depth;
+                dfs(depth+1, op, exp);
+                // 조언에 따라 추가
+                mp.erase(op[i]);
             }
+          
         }
     }
-    return tmpNums[0];
+    else{
+        stack<char> st;
+        vector<string> print;
+        stack<long long> answer;
+        
+        string num="";
+        
+        // 후위 표기법으로 변환
+        for(char c: exp){
+            if(isdigit(c)){
+                num+=c;
+            }
+            else{
+                if(!num.empty()){
+                    print.push_back(num); 
+                    num="";
+                }
+              
+                // 스택 연산자와 현재 연산자 우선순위 비교
+                while(!st.empty() && mp[st.top()]>=mp[c]){
+                        print.push_back(string(1, st.top()));
+                        st.pop();
+                } 
+                st.push(c);
+            }
+        }
+        if(!num.empty()) {
+            print.push_back(num);
+            num="";
+        }
+        
+        while(!st.empty()){
+            // 정답이랑 너무 거리가 멀어서 to_string대신 string()썼더니 테케 하나 통과
+            print.push_back(string(1, st.top())); 
+            st.pop();
+        }
+        
+        // 후위 표기법에 따라 연산 (이 for문 부분때문에 계속 테케1 틀린거였음.. a b 순서 거꾸로 써서...)
+        for(int i=0; i<print.size(); i++){
+            if(print[i]=="+" || print[i]=="-" || print[i]=="*"){
+                long long b= answer.top();
+                answer.pop();
+                long long a=answer.top();
+                answer.pop();
+                
+                long long result = eval(a ,b , print[i][0]);
+                answer.push(result);
+            }
+            else{
+                answer.push(stoll(print[i]));
+            }
+        }
+        
+        maxValue=max(maxValue, abs(answer.top()));
+       
+        return;
+    }
 }
 
 long long solution(string expression) {
-    vector<long long> numbers;
     vector<char> operators;
-    vector<char> uniqueOps;
-
-    string num = "";
-    for (char c : expression) {
-        if (isdigit(c)) {
-            num += c;
-        } else {
-            numbers.push_back(stoll(num));
-            num = "";
-            operators.push_back(c);
-            if (find(uniqueOps.begin(), uniqueOps.end(), c) == uniqueOps.end()) {
-                uniqueOps.push_back(c);
+    
+    for(char c: expression){
+        if(!isdigit(c)){
+            if(find(operators.begin(), operators.end(), c)==operators.end()){
+                operators.push_back(c);
             }
         }
     }
-    numbers.push_back(stoll(num));
-
-    // Generate all permutations of operators
-    sort(uniqueOps.begin(), uniqueOps.end());
-    long long maxResult = 0;
-    do {
-        long long result = evaluateExpression(numbers, operators, uniqueOps);
-        maxResult = max(maxResult, abs(result));
-    } while (next_permutation(uniqueOps.begin(), uniqueOps.end()));
-
-    return maxResult;
+    
+    dfs(0, operators, expression);
+    
+    return maxValue;
 }
 
-int main() {
-    string expression = "100-200*300-500+20";
-    cout << "Maximum prize money: " << solution(expression) << endl;
-    return 0;
-}
