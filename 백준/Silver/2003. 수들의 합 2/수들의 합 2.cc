@@ -1,9 +1,22 @@
 #include <iostream>
 using namespace std;
 
+int ans = 0;
+
+bool check(long sum, int target) {
+	if (sum == target) {
+		ans++;
+		return true;
+	}
+	return false;
+}
+
 int main() {
 
-	int N = 0, ans=0;
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+
+	int N = 0;
 	int arr[10000] = { 0, };
 	long M = 0, sum=0;
 
@@ -19,23 +32,18 @@ int main() {
 		while (sum <= M && end<N) {
 			sum += arr[end];
 			end++;
-			if (sum == M) {
-				ans++;
-				break;
-			}
+
+			if (check(sum, M)) break;
 		}
 
 		while(sum>=M){
 			sum -= arr[start];
 			start++;
-			if (sum == M) {
-				ans++;
-				break;
-			}
+			if (check(sum, M)) break;
 		}
 	}
 
-	cout << ans << endl;
+	cout << ans << "\n";
 
 	return 0;
 }
