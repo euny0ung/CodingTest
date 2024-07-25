@@ -7,6 +7,9 @@ int main() {
 
 	// a^a - b^b가 G가 되는 경우의 수(a) 구하기
 
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+
 	int G = 0;
 
 	cin >> G;
@@ -37,11 +40,11 @@ int main() {
 	
 
 	if (v.empty()) {
-		cout << "-1" << endl;
+		cout << "-1" << "\n";
 	}
 	else {
 		sort(v.begin(), v.end());
-		for (auto value : v) cout << value << endl;
+		for (auto value : v) cout << value << "\n";
 	}
 
 
