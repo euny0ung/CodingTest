@@ -1,7 +1,7 @@
 #include <string>
 #include <vector>
 #include <math.h>
-#define INF 100000000
+#define INF 100000000 // 너무 적게 해주면 효용성 26번 통과 안됨
 
 using namespace std;
 
