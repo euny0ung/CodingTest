@@ -5,6 +5,9 @@ using namespace std;
 
 int main() {
 
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+
 	int N = 0, K = 0;
 	int a = 0, b = 0;
 	int cnt = 0;
