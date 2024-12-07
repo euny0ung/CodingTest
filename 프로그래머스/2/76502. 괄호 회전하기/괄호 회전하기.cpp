@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// 세가지 실수 1. 논리연산자(&&)인데 비트 연산자 씀 2. flag 초기화 위치 잘못됨 3. else문에 break 추가 안함
 int solution(string s) {
     int answer = 0;
     int len=s.length();
