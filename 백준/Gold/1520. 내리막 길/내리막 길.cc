@@ -1,47 +1,50 @@
 #include <iostream>
+#include <memory.h>
 using namespace std;
 
-int arr[501][501] = { 0, };
-int dp[501][501] = { 0, };
-int dx[4] = { 0,0,1,-1 };
-int dy[4] = { 1,-1,0,0 };
-int N = 0, M = 0;
+int M, N;
+int map[501][501];
+int dp[501][501];
+int dx[4] = { 1,-1,0,0 };
+int dy[4] = { 0,0,1,-1 };
 
 bool isRange(int x, int y) {
-	return x >= 0 && x < N && y >= 0 && y < M;
+	return x >= 0 && x < M&& y >= 0 && y < N;
 }
 
 int dfs(int x, int y) {
-
-	// 마지막 칸인 경우
-	if (x == N - 1 && y == M - 1) return 1;
-	// 이미 방문한 경우
+	if (x == M - 1 && y == N - 1) return 1;
 	if (dp[x][y] != -1) return dp[x][y];
 
 	dp[x][y] = 0;
 
 	for (int i = 0; i < 4; i++) {
-		int nextX = x + dx[i];
-		int nextY = y + dy[i];
-
-		if (isRange(nextX, nextY) && arr[nextX][nextY] < arr[x][y]) {
-			dp[x][y] += dfs(nextX,nextY);
+		int nx = x + dx[i];
+		int ny = y + dy[i];
+		if (isRange(nx, ny) && map[nx][ny] < map[x][y]) {
+			
+			dp[x][y]+=dfs(nx, ny);
 		}
 	}
-
 	return dp[x][y];
 }
 
 int main() {
 
-	cin >> N >> M;
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
 
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < M; j++) {
-			cin >> arr[i][j];
-			dp[i][j] = -1;
+	cin >> M >> N;
+
+	for (int i = 0; i < M; i++) {
+		for (int j = 0; j < N; j++) {
+			cin >> map[i][j];
 		}
 	}
 
-	cout << dfs(0, 0)<< "\n";
+	memset(dp, -1, sizeof(dp));
+
+	cout<< dfs(0, 0) << "\n";
+
+	return 0;
 }
