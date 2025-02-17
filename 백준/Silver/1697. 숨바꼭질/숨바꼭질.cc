@@ -1,44 +1,39 @@
 #include <iostream>
-#include <queue>
+#include <cstring>
 using namespace std;
 
-bool visited[100001] = { false, };
-int dist[100001] = { 0, };
-queue<int>q;
-
-int bfs(int start, int end) {
-	q.push(start);
-
-	while (!q.empty()) {
-
-		int current = q.front();
-		q.pop();
-
-		if (current == end) return dist[current];
-
-		int nextPosition[3] = { current - 1, current + 1, current * 2 };
-
-		for (auto next : nextPosition) {
-			if (next >= 0 && next <= 100000 && !visited[next]) {
-				q.push(next);
-				visited[next] = true;
-				dist[next] = dist[current] + 1;
-			}
-		}
-	}
-
-	return -1;
-}
+int N, K;
 
 int main() {
 
-	int N = 0, K = 0;
-
 	cin >> N >> K;
 
-	visited[N] = true;
+	int* dp = new int[K + 10];
+	fill(dp, dp+K+10, 0);
 
-	cout<<bfs(N, K)<<"\n";
+	if (N>K) {
+		cout << N - K << "\n";
+		return 0;
+	}
+
+	// N 앞부분
+	for (int i = 0; i <= N; i++) {
+		dp[i] = N - i;
+	}
+
+	// N 뒷부분
+	for (int i = N + 1; i <= K; i++) {
+		if (i % 2 == 0) {
+			dp[i] = min(dp[i / 2], dp[i - 1]) + 1;
+		}
+		else {
+			dp[i] = min(dp[(i + 1) / 2] + 2, dp[i - 1] + 1);
+		}
+	}
+
+	cout << dp[K] << "\n";
+
+	delete[] dp;
 
 	return 0;
 }
