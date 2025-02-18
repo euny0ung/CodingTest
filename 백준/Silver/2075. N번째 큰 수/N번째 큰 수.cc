@@ -1,36 +1,29 @@
 #include <iostream>
-#include <set>
+#include <queue>
 using namespace std;
 
+int N, input;
+priority_queue<long long, vector<long long>, greater<long long>>q;
 
 int main() {
 
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
 
-	multiset<int>ms;
-
-	int N = 0;
-	int input = 0;
-
 	cin >> N;
 
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < N; j++) {
-			cin >> input;
-
-			if (ms.size() < N) ms.insert(input);
-			else {
-				int minValue = *ms.begin();
-				if (minValue < input) {
-					ms.erase(ms.begin());
-					ms.insert(input);
-				}
+	for (int i = 0; i < N * N; i++) {
+		cin >> input;
+		if (i < N) q.push(input);
+		else {
+			if (q.top() < input) {
+				q.pop();
+				q.push(input);
 			}
 		}
 	}
 
-	cout << *ms.begin() << "\n";
+	cout << q.top() << "\n";
 
 	return 0;
 }
